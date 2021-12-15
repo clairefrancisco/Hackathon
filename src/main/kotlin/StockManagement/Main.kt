@@ -3,10 +3,14 @@ package StockManagement
 import Admin
 import Staff
 import User
+import loginMessage
+import logoutMessage
 
 fun main(){
      userLogin()
 }
+
+//user validation
 fun userLogin(){
     val user1 = Admin()
     val userNameAdmin = user1.getUserName()
@@ -26,6 +30,7 @@ fun userLogin(){
     password = readLine()!!
 
     if(userName == userNameAdmin && password == user1password){
+
         homeMenu(Admin())
     }
     else if(userName == userNameStaff && password == user2password){
@@ -43,7 +48,7 @@ fun userLogin(){
 
 }
 
-
+// shows menu of the user
 fun homeMenu(user: User){
 
         val menu: Map<Int, String> = mapOf(
@@ -55,11 +60,11 @@ fun homeMenu(user: User){
         )
 
     val permission: Boolean = user.getPermission()
-
+    user.loginMessage()
         do {
             println("\nPlease select an action:")
             menu.map {
-                println(it)
+                println("${it.key} - ${it.value}")
             }
             print("Enter the number of your action: ")
             var userChoice = readLine()!!.toInt()
@@ -69,7 +74,10 @@ fun homeMenu(user: User){
                 2 -> user.update(permission)
                 3 -> user.add(permission)
                 4 -> user.delete(permission)
-                0 -> break
+                0 -> {
+                    user.logoutMessage()
+                    break
+                }
                 else -> println("\nInvalid input.")
             }
 

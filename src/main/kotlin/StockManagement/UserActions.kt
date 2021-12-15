@@ -2,6 +2,7 @@ package StockManagement
 
 //Interface
 interface UserActions {
+    //View list of fruits
     fun view(){
         FruitTypes.listOfFruits.forEach{ type ->
             println("${type.key.uppercase()} fruits:")
@@ -12,6 +13,7 @@ interface UserActions {
 
         }
     }
+    //Update the quantity of specific fruit
     fun update(permission: Boolean){
     if(permission){
         println("Types of fruits available:")
@@ -45,6 +47,7 @@ interface UserActions {
     else println("You don't have permission to update.")
      }
 
+    //Add fruit in selected fruit type
      fun add(permission: Boolean) {
          if (permission) {
              println("Types of fruits available:")
@@ -80,6 +83,7 @@ interface UserActions {
          else println("You don't have permission to add.")
      }
 
+    //Delete specific fruit in selected fruit type
     fun delete(permission: Boolean) {
         if (permission) {
             println("Types of fruits available:")

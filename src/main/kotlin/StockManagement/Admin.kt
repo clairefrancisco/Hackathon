@@ -18,4 +18,5 @@ class Admin() : User() {
     override fun getPermission():Boolean{
         return this.isAdmin.component1()
     }
+
 }

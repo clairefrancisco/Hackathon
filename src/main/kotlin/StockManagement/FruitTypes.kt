@@ -1,4 +1,3 @@
-
 //Constant Files of Fruit Types
 object FruitTypes{
     var listOfFruits = mutableMapOf(
