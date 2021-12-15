@@ -61,6 +61,7 @@ fun homeMenu(user: User){
 
     val permission: Boolean = user.getPermission()
     user.loginMessage()
+    user.greetings()
         do {
             println("\nPlease select an action:")
             menu.map {

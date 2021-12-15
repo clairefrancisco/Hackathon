@@ -19,4 +19,8 @@ class Admin() : User() {
         return this.isAdmin.component1()
     }
 
+    override fun greetings(){
+        println("Logged in as Admin.")
+    }
+
 }
